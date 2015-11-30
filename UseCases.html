@@ -1,0 +1,105 @@
+<html>
+	<body>
+	<p style="text-align:center;">Use Cases Yann:</p>
+	<p style="text-align:center;">3 types of use cases:</p>
+	<p style="text-decoration: underline;text-indent:2em">Brief use case: </p>
+
+	<p style="text-indent:4em">Use case: Find a Workout Plan </p>
+
+	<p style="text-indent:4em">Actors: Member</p>
+
+	<p style="text-decoration: underline;text-indent:4em">Precondition: </p>
+	<p style="text-indent:6em">The user need to be login</p>
+	<p style="text-indent:6em">The page “find workout plan” is displayed</p>
+
+	<p style="text-decoration: underline;text-indent:4em">Descritpion:  (Main Success Scenario)</p>
+
+	<p style="text-indent:6em">The system propose few criterias, level of difficulty, type of workout or part of the body trained. </p>
+	<p style="text-indent:6em">The user have to fill the criterias to fin the workout plan adapted. Then, the user need to confirm. </p>
+	<p style="text-indent:6em">Finally,  the system will display the list of the workout plan find or none if nothing is found</p>
+
+	<br><br><br>
+
+	<p style="text-decoration: underline;text-indent:2em">Casual use case:</p>
+
+
+	<p style="text-indent:4em">Use case: Delete Workout Plan</p>
+
+	<p style="text-indent:4em">Actors:    Member</p>
+
+	<p style="text-decoration: underline;text-indent:4em">Precondition: </p>
+	<p style="text-indent:6em">The user need to be login</p>
+	<p style="text-indent:6em">The user to have at least 1 workout plan created</p>
+
+	<p style="text-decoration: underline;text-indent:4em">Description: (Main Success Scenario)</p>
+
+	<p style="text-indent:6em">The user have to select the workout plan that he want to delete. </p>
+	<p style="text-indent:6em">Then he need to press the button “delete”. Finally a text box appear asking confirmation, the user choose confirm.</p>
+	
+	<p style="text-decoration: underline;text-indent:4em">Alternate Scenarios: </p>
+	<p style="text-indent:6em">The user choose “cancel” and the case is abort. The system bring the user back to the previous screen.</p>
+	
+	<p style="text-decoration: underline;text-indent:4em">Postcondition:</p>
+	<p style="text-indent:6em">Main success scenario: The workout plan is deleted, the user is back to the previous screen.</p>
+	<p style="text-indent:6em">Alternate scenario:  The workout plan is not deleted and the user is back to the previous screen.</p>
+			   
+	<br><br><br>
+	
+	
+	<p style="text-decoration: underline;text-indent:2em">Fully dressed use case: </p>
+
+
+
+	<p style="text-indent:4em">Use case:    Create a Workout Plan</p>
+
+	<p style="text-indent:4em">Actors:    Member</p>
+
+    <p style="text-decoration: underline;text-indent:4em">Precondition: </p>
+	<p style="text-indent:6em">The user need to be login</p>
+	<p style="text-indent:6em">The user need to be on the “create a workout plan” page</p>
+
+	<p style="text-decoration: underline;text-indent:4em">Description:</p>
+	<p style="text-indent:6em">The user have to fill criterias to create a new workout plan.</p>
+
+<p style="text-decoration: underline;text-indent:4em">Main Success Scenario:</p>
+<p style="text-indent:6em">1. The user want to create a new workout plan</p>
+
+<p style="text-indent:6em">2. The user enter the first criterias:</p>
+<p style="text-indent:8em">	Name, level, number of days, plan type, part of the body</p>
+
+<p style="text-indent:6em">3. The user click next</p>
+
+<p style="text-indent:6em">4. While the number of days added < number of days</p>
+
+<p style="text-indent:8em">a. if needed then create a workout day:</p>
+
+<p style="text-indent:10em">	i. The user fill the attributes of the workout day </p>
+
+<p style="text-indent:10em">	ii. While a new exercise is needed</p>
+<p style="text-indent:12em">		1. If needed the user create new exercise</p>
+<p style="text-indent:12em">			- The usercreate an exercise (see create exercise use case), then press “next”</p>
+
+<p style="text-indent:12em">        2.    If more then 1 exercise already exist</p>
+<p style="text-indent:12em">			- Choose one of the workout exercise, then press “next”</p>
+
+ <p style="text-indent:10em">   iii.      Click “next day”</p>
+
+<p style="text-indent:8em">b. if more then 1 workout day already exist</p>
+<p style="text-indent:8em"> - Choose one of the workout days, press “next day”</p>
+
+<p style="text-indent:6em">      6. The user click “Finish</p>
+
+<p style="text-indent:6em">      7. End of the case (1)</p>
+
+
+<p style="text-decoration: underline;text-indent:4em">Alternate Scenarios: </p>
+<p style="text-indent:6em">             Step .4/ 5.a.ii.1/ 5.a.ii.2/ .5.a.iii/ .5.b The user click “cancel”, the case is aborted</p>
+<p style="text-indent:6em">             End of the case (2)</p>
+<p style="text-indent:6em">             End of the case (2)</p>
+
+<p style="text-decoration: underline;text-indent:4em">Postconditions:</p>
+<p style="text-indent:6em">             End of the case (1): The workout plan is created, the user is back to the page main page</p>
+ <p style="text-indent:6em">            End of the case (2): The creation is aborted,  the user is back to the page main page</p>
+
+	</body>	   
+</html>
