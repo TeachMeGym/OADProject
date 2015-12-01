@@ -1,105 +1,92 @@
-<html>
-	<body>
-	<p style="text-align:center;">Use Cases Yann:</p>
-	<p style="text-align:center;">3 types of use cases:</p>
-	<p style="text-decoration: underline;text-indent:2em">Brief use case: </p>
+ <html>
+ 	<body>
+ 	<p style="font-size:xx-large;text-align:center;">Use Cases</p>
+ 	<p style="text-decoration: underline;text-indent:2em">Few examples of casual use cases:</p>
+ 	<p style="text-indent:4em">Use case 1.0: Posts a Comment</p>
 
-	<p style="text-indent:4em">Use case: Find a Workout Plan </p>
-
-	<p style="text-indent:4em">Actors: Member</p>
-
-	<p style="text-decoration: underline;text-indent:4em">Precondition: </p>
-	<p style="text-indent:6em">The user need to be login</p>
-	<p style="text-indent:6em">The page “find workout plan” is displayed</p>
-
-	<p style="text-decoration: underline;text-indent:4em">Descritpion:  (Main Success Scenario)</p>
-
-	<p style="text-indent:6em">The system propose few criterias, level of difficulty, type of workout or part of the body trained. </p>
-	<p style="text-indent:6em">The user have to fill the criterias to fin the workout plan adapted. Then, the user need to confirm. </p>
-	<p style="text-indent:6em">Finally,  the system will display the list of the workout plan find or none if nothing is found</p>
-
-	<br><br><br>
-
-	<p style="text-decoration: underline;text-indent:2em">Casual use case:</p>
-
-
-	<p style="text-indent:4em">Use case: Delete Workout Plan</p>
-
-	<p style="text-indent:4em">Actors:    Member</p>
-
-	<p style="text-decoration: underline;text-indent:4em">Precondition: </p>
-	<p style="text-indent:6em">The user need to be login</p>
-	<p style="text-indent:6em">The user to have at least 1 workout plan created</p>
-
-	<p style="text-decoration: underline;text-indent:4em">Description: (Main Success Scenario)</p>
-
-	<p style="text-indent:6em">The user have to select the workout plan that he want to delete. </p>
-	<p style="text-indent:6em">Then he need to press the button “delete”. Finally a text box appear asking confirmation, the user choose confirm.</p>
-	
-	<p style="text-decoration: underline;text-indent:4em">Alternate Scenarios: </p>
-	<p style="text-indent:6em">The user choose “cancel” and the case is abort. The system bring the user back to the previous screen.</p>
-	
-	<p style="text-decoration: underline;text-indent:4em">Postcondition:</p>
-	<p style="text-indent:6em">Main success scenario: The workout plan is deleted, the user is back to the previous screen.</p>
-	<p style="text-indent:6em">Alternate scenario:  The workout plan is not deleted and the user is back to the previous screen.</p>
-			   
-	<br><br><br>
+	<p style="text-indent:6em">The member wants to post a comment uploaded video. The member has to be logged in.</p>
+	<p style="text-indent:6em">The member clicks on the comment text area. The member types in the comment they want to post. When the member </p>
+	<p style="text-indent:6em">is finished typing the comment the user clicks on the post button to submit the comment. The system gathers the </p>
+	<p style="text-indent:6em">entered and adds it to the comments table. The system confirms to the member that comment has been added. </p>
+	</p>
+ <br><br>
+ 	<p style="text-indent:4em">Use case 2.0: Upload a Video</p>
+ 
+ 	<p style="text-indent:6em">The member wishes to upload a video to the database. The member </p>
+	<p style="text-indent:6em">must be logged in to the application to access the upload video. The member must click on the upload button. When the </p>
+	<p style="text-indent:6em">member clicks on the upload button the system brings up the upload UI.  The member searches for the video their own system.</p>
+	<p style="text-indent:6em">The member choices the video they wish to upload. The system holds the file on the upload UI. The member must complete the </p>
+	<p style="text-indent:6em">upload UI by entering the file format and the video description. The member clicks the upload button to complete the upload </p>
+	<p style="text-indent:6em">of the video. When the member clicks the upload button the system verifies the entered details. If the entered details are </p>
+	<p style="text-indent:6em">correct the system starts the upload of the video to the database. When the video is finally uploaded to the database the system</p>
+	<p style="text-indent:6em">sends a notification to the user that the video has successfully been uploaded.</p>
+	<br><br>
+	<p style="text-indent:6em">The member can cancel the upload of the video during the progress. Cancelling the upload will result in the video not been uploaded </p>
+	<p style="text-indent:6em">to the database. If the member enters the incorrect details or the file is too big, the system will notify the member of the incorrect details.</p>
+	</p>
+  <br><br>
+	<p style="text-decoration: underline;text-indent:2em">An example of fully dressed use cases:</p>
 	
 	
-	<p style="text-decoration: underline;text-indent:2em">Fully dressed use case: </p>
+ 	<p style="text-indent:4em">Use case 1.0: Create a Playlist</p>
+ 
+ 	<p style="text-indent:6em"><b>Actor</b>: Gym Member<br></p>
+	<p style="text-indent:6em">	<b>Goal in Context:</b> Gym Member creates a video playlist. <br></p>
+	<p style="text-indent:6em">	<b>Scope:</b>  Application allows members to upload, watch, share videos, allows members to create <br> 
+	<p style="text-indent:6em">	workout plans and video playlist. </p>
+	<p style="text-indent:6em">	<b>Level:</b> Summary<br></p>
+	<p style="text-indent:6em">	<b>Precondition:</b>  Gym Member must be logged in. <br></p>
+	<p style="text-indent:6em">	<b>Post-condition:</b> The playlist is created <br></p>
+	<p style="text-indent:6em">	<b>Trigger:</b>  Member wants to create a playlist <br></p>
+	<p style="text-indent:6em"> <b>Main Success Scenario</b></p>
+ 
+ 
+	<p style="text-indent:8em">1.	Gym Member selects the ‘Create Playlist’ option. </p>
+	<p style="text-indent:8em">2.	System displays ‘Create Playlist’ UI. </p>
+	<p style="text-indent:8em">3.	Gym Member fills out the form with the appropriate entries; Name of Playlist, Description, Category, and Difficulty. </p>
+	<p style="text-indent:8em">4.	 Gym Member confirms entered details. </p>
+	<p style="text-indent:8em">5.	System Validates entered Details. </p>
+	<p style="text-indent:8em">6.	System displays The Search Video UI. </p>
+	<p style="text-indent:8em">7.	Gym Member fills out the form with the appropriate entries; SearchTitle, Categories, Type, Difficulty and Ratings</p>
+	<p style="text-indent:8em">8.	Gym Member selects ‘Search’ option. </p>
+	<p style="text-indent:8em">9.	System displays a list of search results Oder by ‘Rating’. </p>
+	<p style="text-indent:8em">10.	Gym Member selects the ‘Add’ button beside each video that the Gym Member would like to add to the created playlist. </p>
+	<p style="text-indent:8em">11.	Gym Member selects the ‘Submit’ option to complete selection. </p>
+	<p style="text-indent:8em">12.	System displays Confirmation Message.</p>
+	<p style="text-indent:8em">13.	Gym Member selects the ‘Confirm’ option. </p>
+	<p style="text-indent:8em">14.	System creates the playlist. </p>
+	<p style="text-indent:8em">15.	System displays the ‘Playlist UI’ </p>
 
+	<p style="text-indent:6em"> <b>Alternative scenarios</b></p>
+	
+	<p style="text-indent:8em">From any screen: Gym member selects the Cancel Option</p>
+	<p style="text-indent:15em">System displays Playlist UI. </p>
+	<p style="text-indent:8em">5a. System displays error message of invalid inputted details.  </p>
+	<p style="text-indent:8em">5b. Gym member selects the ‘Ok’ option. </p>
+	<p style="text-indent:8em">5c. System displays ‘Create Playlist’ UI. </p>
+	<br><br>
+	<p style="text-indent:8em">9a System displays error message of video not found</p>
+	<p style="text-indent:8em">9b. Gym member selects the ‘Ok’ option. </p>
+	<p style="text-indent:8em">5c. System displays ‘Create Playlist’ UI. </p>
+	<br><br>
+	<p style="text-indent:8em">12a System display error message of no video selected</p>
+	<p style="text-indent:8em">5b. Gym member selects the ‘Ok’ option. </p>
+	<p style="text-indent:8em">5c. System displays ‘Create Playlist’ UI</p>
+	<br><br>
+	
+	<p style="text-decoration: underline;text-indent:2em">Few example of brief use cases:</p>
+	<p style="text-indent:4em">Use case 4.0: Login</p>
+	<p style="text-indent:6em">Log the Gym Member in the system.</p>
 
+	<p style="text-indent:4em">Use case 5.0: Logout</p>
+	<p style="text-indent:6em">Log the Gym Member out the System.</p>
 
-	<p style="text-indent:4em">Use case:    Create a Workout Plan</p>
+	<p style="text-indent:4em">Use case 6.0: Follow</p>
+	<p style="text-indent:6em">Allow Gym Member to follow another Gym Member.</p>
 
-	<p style="text-indent:4em">Actors:    Member</p>
+	<p style="text-indent:4em">Use case 7.0: Watch a video</p>
+	<p style="text-indent:6em">Allow a Gym Member to play a video.</p>
 
-    <p style="text-decoration: underline;text-indent:4em">Precondition: </p>
-	<p style="text-indent:6em">The user need to be login</p>
-	<p style="text-indent:6em">The user need to be on the “create a workout plan” page</p>
-
-	<p style="text-decoration: underline;text-indent:4em">Description:</p>
-	<p style="text-indent:6em">The user have to fill criterias to create a new workout plan.</p>
-
-<p style="text-decoration: underline;text-indent:4em">Main Success Scenario:</p>
-<p style="text-indent:6em">1. The user want to create a new workout plan</p>
-
-<p style="text-indent:6em">2. The user enter the first criterias:</p>
-<p style="text-indent:8em">	Name, level, number of days, plan type, part of the body</p>
-
-<p style="text-indent:6em">3. The user click next</p>
-
-<p style="text-indent:6em">4. While the number of days added < number of days</p>
-
-<p style="text-indent:8em">a. if needed then create a workout day:</p>
-
-<p style="text-indent:10em">	i. The user fill the attributes of the workout day </p>
-
-<p style="text-indent:10em">	ii. While a new exercise is needed</p>
-<p style="text-indent:12em">		1. If needed the user create new exercise</p>
-<p style="text-indent:12em">			- The usercreate an exercise (see create exercise use case), then press “next”</p>
-
-<p style="text-indent:12em">        2.    If more then 1 exercise already exist</p>
-<p style="text-indent:12em">			- Choose one of the workout exercise, then press “next”</p>
-
- <p style="text-indent:10em">   iii.      Click “next day”</p>
-
-<p style="text-indent:8em">b. if more then 1 workout day already exist</p>
-<p style="text-indent:8em"> - Choose one of the workout days, press “next day”</p>
-
-<p style="text-indent:6em">      6. The user click “Finish</p>
-
-<p style="text-indent:6em">      7. End of the case (1)</p>
-
-
-<p style="text-decoration: underline;text-indent:4em">Alternate Scenarios: </p>
-<p style="text-indent:6em">             Step .4/ 5.a.ii.1/ 5.a.ii.2/ .5.a.iii/ .5.b The user click “cancel”, the case is aborted</p>
-<p style="text-indent:6em">             End of the case (2)</p>
-<p style="text-indent:6em">             End of the case (2)</p>
-
-<p style="text-decoration: underline;text-indent:4em">Postconditions:</p>
-<p style="text-indent:6em">             End of the case (1): The workout plan is created, the user is back to the page main page</p>
- <p style="text-indent:6em">            End of the case (2): The creation is aborted,  the user is back to the page main page</p>
-
-	</body>	   
-</html>
+ </body>
+ </html>
+ 
