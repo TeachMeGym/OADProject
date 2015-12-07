@@ -30,9 +30,11 @@
 		public ArrayList<Playlist> getMemberPlaylist(){
 			return memberPlaylist;
 		}
-
+		
+		public void createPlaylist(){
+			
+		}
 	}
-	
 	
 
 	public class Playlist{
@@ -83,12 +85,16 @@
 	public class Video{
 		private String videoTitle
 		private String videoDescription
+		private String videoCategory
+		private int videoLevel
 		
-		public void Video(String videoT, String videoD){
+		public void Video(String videoT, String videoD, String videoC, int videoL ){
 		
 			List<Video> playlistvideo = new ArrayList<Video>();
 			videoTitle = videoT;
 			videoDescription = videoD;
+			videoCategory = videoC;
+			videoLevel = videoL;
 		}
 		
 		public String getVideoTitle(){
@@ -98,9 +104,62 @@
 		public String getVideoDescription(){
 			return PlaylistVideos;
 		}
+		
+		public String getVideoCategory(){
+			return PlaylistVideos;
+		}
+		
+		public 	int getVideoLevel(){
+			return PlaylistVideos;
+		}
 	}
 	
-
-
+	
+	public class SearchVideo{
+		private String searchVideoTitle;
+		private String searchVideoDescription;
+		private String searchVideoCategory;
+		private int searchVideoLevel;
+		
+		private ArrayList<Video> videoFound;
+		
+		public void SearchVideo(String videoST, String videoSD, String videoSC, int videoSL ){
+		
+			List<Video> videoFound = new ArrayList<Video>();
+			videoTitle = videoT;
+			videoDescription = videoD;
+			videoCategory = videoC;
+			videoLevel = videoL;
+		}
+		
+		public String getVideoTitle(){
+			return searchVideoTitle;
+		}
+		
+		public String getVideoDescription(){
+			return searchVideoDescription;
+		}
+		
+		public String getVideoSearchCategory(){
+			return searchVideoCategory;
+		}
+		
+		public 	int getVideoSearchLevel(){
+			return searchVideoLevel;
+		}
+		
+	}
+	
+	public class videoLibrary{
+		private ArrayList<Video> videoLibrary;
+		
+		public void videoLibrary(){
+			List<Video> videoLibrary = new ArrayList<Video>();
+		}
+		
+		public void addVideo(Video video){
+			videoLibrary.add(video);
+		}
+	}
 
 
