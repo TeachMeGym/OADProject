@@ -5,9 +5,12 @@
  */
 package ie.ittralee;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
- * @author 
+ * @author Sean Hayes
  */
 public class CreatePlaylistTester {
     
@@ -15,35 +18,34 @@ public class CreatePlaylistTester {
         Playlist playlist = new Playlist();
     initializePlaylist(playlist);
 
-    Video search= new Video("V1", "Bench Press", "Prpoper Bench Press", 
-                                      "Chest", 5);
+    VideoSpec gymMemberSearch = new VideoSpec( "Olympic Bar Bench Press", "Proper Way to Bench Press", 
+                                      Category.CHEST, 5);
     
-    Video video = playlist.search(search);
-    if (video != null) {
-      System.out.println("Relative Video(s) \n" +
-        video.getVideoTitle() +  " " + "Video:\n"+
-        video.getVideoDescription() + " Description:\n   " +
-        video.getVideoCategory() + " Category:\n   " +
-        video.getExerciseLevel()+ " Level "); 
-      if(search!=null){
-          
-          
-          
+    List matchingVideos = playlist.search(gymMemberSearch);
+    if (!matchingVideos.isEmpty()) {
+      System.out.println("Relative Video(s) " );
+      for (Iterator i = matchingVideos.iterator(); i.hasNext();){
+          Video video = (Video)i.next();
+          VideoSpec spec = video.getSpec();
+          System.out.println("Videos found" + "" +
+          spec.getVideoTitle() + "" + spec.getVideoDescription() + "" + "description"
+                  + spec.getCategory() + "" + "Category"
+                  + spec.getExerciseLevel() + "level" );
       }
+      
     } else {
       System.out.println("Sorry, Can't Find Video");
     }
   }
 
-    
-  private static void initializePlaylist(Playlist playlist) {
-    playlist.addVideo("V1","Bench Press", "Prpoper Bench Press", "Chest", 5);
-    playlist.addVideo("V2","Arm Curl", "Arm Curl Video", "Arms", 3);
-    playlist.addVideo("V3","Shrugs", "Strenghten Neck and Shoulder", "Shoulders", 4);
-    playlist.addVideo("V4","Seated Rows", "Seated Rows Technique", "Back", 5);
-    playlist.addVideo("V5","leg Curl", "Maxiummise your leg workout", "Leg", 2);
-  
+  private static void initializePlaylist(Playlist playlist)
+  {
+    playlist.addVideo("V1", new VideoSpec("Bicep Curl", "Video on Bicep workout", Category.ARMS, 5));
+    playlist.addVideo("V2", new VideoSpec("leat Pull Down", "Back Work Out", Category.BACK, 4));
+    playlist.addVideo("V3", new VideoSpec("Fly Pecs ", "Best way to Fly pec", Category.CHEST, 3));
+    playlist.addVideo("V4", new VideoSpec("Leg Press","Increse your Reps", Category.LEGS, 4));
+    playlist.addVideo("V5", new VideoSpec("Shoulder Raises","Maxiumise you Workout", Category.SHOULDERS, 4));
+
   }
-    
-    
+   
 }

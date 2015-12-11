@@ -1,8 +1,9 @@
 package ie.ittralee;
 
-import static java.lang.Integer.parseInt;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,8 +23,8 @@ public class Playlist{
         videos = new ArrayList();
     }
     
-    public void addVideo(String videoId, String title,String desc, String category, int level){
-        Video video = new Video (videoId, title, desc, category,level);
+    public void addVideo(String videoId, VideoSpec spec){
+        Video video = new Video (videoId, spec);
                               
     videos.add(video);
         //List<Video> playlistVideos = new ArrayList<Video>();
@@ -34,37 +35,22 @@ public class Playlist{
       //  playlistLevel = exerciseLevel;
     }
     
-   public Video getVideo(String videoId){
+    public Video getVideo(String videoId){
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
       Video video = (Video)i.next();
-      if (video.getVideoTitle().equals(videoId)) {
+      if (video.getVideoId().equals(videoId)) {
         return video;
       }
     }
     return null;
     }
-  
-public Video search(Video searchVideo){
-
+    public List search(VideoSpec searchSpec){
+    List matchingVideos = new LinkedList();
     for (Iterator i = videos.iterator(); i.hasNext(); ) {
       Video video = (Video)i.next();
-      String title = searchVideo.getVideoTitle();
-      if ((title != null) && (!title.equals("")) &&
-          (!title.equals(video.getVideoTitle())))
-        continue;
-      String desc = searchVideo.getVideoDescription();
-      if ((desc != null) && (!desc.equals("")) &&
-          (!desc.equals(video.getVideoDescription())))
-        continue;
-      String category = searchVideo.getVideoCategory();
-      if ((category != null) && (!category.equals("")) &&
-          (!category.equals(video.getVideoCategory())))
-        continue;   
-      /* int level = searchVideo.getExerciseLevel();
-      if ((level != null) && (!level.equals("")) &&
-          (!category.equals(video.getExerciseLevel())))
-        continue; */
-    return video;
+      if (video.getSpec().matches(searchSpec))
+          matchingVideos.add(video);       
+      return matchingVideos;
     }
     return null;
 }
