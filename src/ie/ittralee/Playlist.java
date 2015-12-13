@@ -13,46 +13,46 @@ import java.util.List;
 public class Playlist{
     private List videos;
     
-   /* private String playlistName;
+    private String playlistName;
     private String playlistDescription;
     private String playlistCategory;
-    private String playlistLevel;
-    private ArrayList<Video> playlistVideos;*/
+    private int playlistLevel;
+    private ArrayList<Video> playlistVideos;
 
-    public Playlist(){
+    public Playlist(String playlistName,String playlistDescription, String playlistCategory, int playlistLevel){
+        this.playlistName =playlistName;
+        this.playlistDescription = playlistDescription;
+        this.playlistCategory = playlistCategory;
+        this.playlistLevel = playlistLevel;
         videos = new ArrayList();
     }
     
     public void addVideo(String videoId, VideoSpec spec){
         Video video = new Video (videoId, spec);
-                              
-    videos.add(video);
-        //List<Video> playlistVideos = new ArrayList<Video>();
-
-       // playlistName = namePlaylist;
-       // playlistDescription = playlistDescription;
-       // Category = Category;
-      //  playlistLevel = exerciseLevel;
+        videos.add(video);
     }
     
     public Video getVideo(String videoId){
+
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
-      Video video = (Video)i.next();
-      if (video.getVideoId().equals(videoId)) {
-        return video;
-      }
+            Video video = (Video)i.next();
+            if (video.getVideoId().equals(videoId)) {
+                return video;
+            }
+        }
+        return null;
     }
-    return null;
+
+    public List search(VideoSpec searchSpec) {
+        List matchingVideos = new LinkedList();
+
+        for (Iterator i = videos.iterator(); i.hasNext(); ) {
+            Video video = (Video) i.next();
+            if (video.getSpec().matches(searchSpec)) {
+                matchingVideos.add(video);
+            }
+            return matchingVideos;
+        }
+        return null;
     }
-    public List search(VideoSpec searchSpec){
-    List matchingVideos = new LinkedList();
-    for (Iterator i = videos.iterator(); i.hasNext(); ) {
-      Video video = (Video)i.next();
-      if (video.getSpec().matches(searchSpec))
-          matchingVideos.add(video);       
-      return matchingVideos;
-    }
-    return null;
-}
-   
 }

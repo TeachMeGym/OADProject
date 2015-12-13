@@ -12,7 +12,7 @@ package ie.ittralee;
 public enum Category {
     
     ARMS, BACK, CHEST, LEGS, SHOULDERS;
-   
+
     public String toString(){
         switch(this){
             case ARMS:      return "Arms";

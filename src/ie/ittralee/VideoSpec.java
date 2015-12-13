@@ -41,14 +41,21 @@ public class VideoSpec {
     }
      
      public boolean matches(VideoSpec otherSpec){
-         if((videoTitle != null) && (!videoTitle.equals("")) &&
+
+         if((otherSpec.getVideoTitle() != null) && (!otherSpec.getVideoTitle().equals("")) &&
                  (!videoTitle.toLowerCase().equals(otherSpec.videoTitle.toLowerCase())))
              return false;
-         if((videoDescription != null) && (!videoDescription.equals("")) &&
+
+         if((otherSpec.getVideoDescription() != null) && (!otherSpec.getVideoDescription().equals("")) &&
                  (!videoDescription.toLowerCase().equals(otherSpec.videoDescription.toLowerCase())))
              return false;
-         if(category!=otherSpec.category)
+
+         if((otherSpec.getCategory() != null) && (category!=otherSpec.category))
              return false;
+
+         if((otherSpec.getExerciseLevel() != 0) && (exerciseLevel!=otherSpec.getExerciseLevel()))
+             return false;
+
          return true;
      }
 }
