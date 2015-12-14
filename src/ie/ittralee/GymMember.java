@@ -52,61 +52,27 @@ public class GymMember{
 
         while (doSearch.compareTo("Y")==0) {
 
-            System.out.println("Enter your video title:\n ");
-            scanner = new Scanner(System.in);
-            String title = scanner.nextLine();
+            Video searchVideo = inputSearchVideo();
 
-            System.out.println("Enter your video description: \n");
-            scanner = new Scanner(System.in);
-            String description = scanner.nextLine();
-
-            System.out.println("Enter your video category: \n");
-            System.out.println("1  ARMS, 2 BACK, 3 CHEST, 4 LEGS, 5 SHOULDERS");
-            scanner = new Scanner(System.in);
-            int categoryChoice = scanner.nextInt();
-
-            Category category = null;
-
-            if (categoryChoice == 1) {
-                category = Category.ARMS;
-
-            } else if (categoryChoice == 2) {
-                category = Category.BACK;
-
-            } else if (categoryChoice == 3) {
-                category = Category.CHEST;
-
-            } else if (categoryChoice == 4) {
-                category = Category.LEGS;
-
-            } else if (categoryChoice == 5) {
-                category = Category.SHOULDERS;
-            }
-
-            System.out.println("Enter your video level: ");
-            scanner = new Scanner(System.in);
-            int level = scanner.nextInt();
-
-            VideoSpec videoSpec = new VideoSpec(title, description, category, level);
-            System.out.println("test" + videoSpec.getVideoTitle());
-
-            List<Video> search = VideoLibrary.search(videoSpec);
+            List<Video> search = VideoLibrary.search(searchVideo);
 
             int i = 0;
 
             for (Video video : search) {
 
                 System.out.println("Insert this video ? (Y/N)\n");
-                System.out.println(video.getSpec().getVideoTitle());
+                System.out.println(video.getVideoTitle());
                 scanner = new Scanner(System.in);
+
                 String answer = scanner.nextLine();
                 String index = Integer.toString(i);
 
                 if (answer == "Y") {
-                    newPlaylist.addVideo(index, videoSpec);
+                    newPlaylist.addVideo(video);
                 }
                 i++;
             }
+
             System.out.println("Do a new search ? (Y/N) \n ");
             scanner = new Scanner(System.in);
             doSearch = scanner.nextLine();
@@ -116,7 +82,7 @@ public class GymMember{
         memberPlaylists.add(newPlaylist);
     }
 
-    public void search(VideoSpec gymMemberSearch){
+    public void search(Video gymMemberSearch){
 
         List matchingVideos = VideoLibrary.search(gymMemberSearch);
 
@@ -125,18 +91,62 @@ public class GymMember{
 
             for (Object matchingVideo : matchingVideos) {
                 Video video = (Video) matchingVideo;
-                VideoSpec spec = video.getSpec();
-                System.out.println("Videos found" + "" + spec.getVideoTitle() + ""
-                        + spec.getVideoDescription() + "" + "description"
-                        + spec.getCategory() + "" + "Category"
-                        + spec.getExerciseLevel() + "level");
+                System.out.println("Videos found" + "" + video.getVideoTitle() + ""
+                        + video.getVideoDescription() + "" + "description"
+                        + video.getCategory() + "" + "Category"
+                        + video.getExerciseLevel() + "level"
+                        + video.getVideoRatings() + "ratings");
             }
         } else {
             System.out.println("Sorry, Can't Find Video");
         }
-
-
     }
 
+    public Video inputSearchVideo(){
+        System.out.println("Enter your video title:\n ");
+        Scanner scanner = new Scanner(System.in);
+        String title = scanner.nextLine();
+
+        System.out.println("Enter your video description: \n");
+        scanner = new Scanner(System.in);
+        String description = scanner.nextLine();
+
+        System.out.println("Enter your video category: \n");
+        System.out.println("1  ARMS, 2 BACK, 3 CHEST, 4 LEGS, 5 SHOULDERS, 0 NONE");
+        scanner = new Scanner(System.in);
+        int categoryChoice = scanner.nextInt();
+
+        Category category = null;
+
+        if (categoryChoice == 1) {
+            category = Category.ARMS;
+
+        } else if (categoryChoice == 2) {
+            category = Category.BACK;
+
+        } else if (categoryChoice == 3) {
+            category = Category.CHEST;
+
+        } else if (categoryChoice == 4) {
+            category = Category.LEGS;
+
+        } else if (categoryChoice == 5) {
+            category = Category.SHOULDERS;
+        }else{
+            category=null;
+        }
+
+        System.out.println("Enter your video level (0 for none)");
+        scanner = new Scanner(System.in);
+        int level = scanner.nextInt();
+
+        System.out.println("Enter your video rating (0 for none) ");
+        scanner = new Scanner(System.in);
+        int ratings = scanner.nextInt();
+
+        Video videoSpec = new Video(title, description, category, level,ratings);
+
+        return videoSpec;
+    }
 
 }

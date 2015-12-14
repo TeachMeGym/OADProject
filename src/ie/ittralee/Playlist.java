@@ -27,28 +27,27 @@ public class Playlist{
         videos = new ArrayList();
     }
     
-    public void addVideo(String videoId, VideoSpec spec){
-        Video video = new Video (videoId, spec);
-        videos.add(video);
+    public void addVideo(Video newVideo){
+        videos.add(newVideo);
     }
     
-    public Video getVideo(String videoId){
+    public Video getVideo(int videoId){
 
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
             Video video = (Video)i.next();
-            if (video.getVideoId().equals(videoId)) {
+            if (videoId == video.getVideoId()) {
                 return video;
             }
         }
         return null;
     }
 
-    public List search(VideoSpec searchSpec) {
+    public List search(Video searchVideo) {
         List matchingVideos = new LinkedList();
 
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
             Video video = (Video) i.next();
-            if (video.getSpec().matches(searchSpec)) {
+            if (video.matches(searchVideo)) {
                 matchingVideos.add(video);
             }
             return matchingVideos;

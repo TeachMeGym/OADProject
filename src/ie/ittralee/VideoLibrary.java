@@ -1,7 +1,6 @@
 package ie.ittralee;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,16 +19,15 @@ public class VideoLibrary{
         videoLibrary = new ArrayList<Video>();
     }
 
-    public static void addVideo(String videoId, VideoSpec spec){
-        Video video = new Video (videoId, spec);
-        videoLibrary.add(video);
+    public static void addVideo(Video newVideo){
+        videoLibrary.add(newVideo);
     }
 
-    public static List search(VideoSpec searchSpec) {
+    public static List search(Video searchSpec) {
         List matchingVideos = new LinkedList();
 
         for (Video video : videoLibrary) {
-            if (video.getSpec().matches(searchSpec)) {
+            if (video.matches(searchSpec)) {
                 matchingVideos.add(video);
             }
 
