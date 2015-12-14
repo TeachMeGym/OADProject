@@ -52,23 +52,23 @@ public class GymMember{
 
         while (doSearch.compareTo("Y")==0) {
 
-            Video searchVideo = inputSearchVideo();
+            Media searchMedia = inputSearchVideo();
 
-            List<Video> search = VideoLibrary.search(searchVideo);
+            List<Media> search = MediaLibrary.search(searchMedia);
 
             int i = 0;
 
-            for (Video video : search) {
+            for (Media media : search) {
 
-                System.out.println("Insert this video ? (Y/N)\n");
-                System.out.println(video.getVideoTitle());
+                System.out.println("Insert this media ? (Y/N)\n");
+                System.out.println(media.getMediaTitle());
                 scanner = new Scanner(System.in);
 
                 String answer = scanner.nextLine();
                 String index = Integer.toString(i);
 
                 if (answer == "Y") {
-                    newPlaylist.addVideo(video);
+                    newPlaylist.addVideo(media);
                 }
                 i++;
             }
@@ -82,27 +82,27 @@ public class GymMember{
         memberPlaylists.add(newPlaylist);
     }
 
-    public void search(Video gymMemberSearch){
+    public void search(Media gymMemberSearch){
 
-        List matchingVideos = VideoLibrary.search(gymMemberSearch);
+        List matchingVideos = MediaLibrary.search(gymMemberSearch);
 
         if (!matchingVideos.isEmpty()) {
-            System.out.println("Relative Video(s) " );
+            System.out.println("Relative Media(s) " );
 
             for (Object matchingVideo : matchingVideos) {
-                Video video = (Video) matchingVideo;
-                System.out.println("Videos found" + "" + video.getVideoTitle() + ""
-                        + video.getVideoDescription() + "" + "description"
-                        + video.getCategory() + "" + "Category"
-                        + video.getExerciseLevel() + "level"
-                        + video.getVideoRatings() + "ratings");
+                Media media = (Media) matchingVideo;
+                System.out.println("Videos found" + "" + media.getMediaTitle() + ""
+                        + media.getMediaDescription() + "" + "description"
+                        + media.getMediaCategory() + "" + "Category"
+                        + media.getExerciseLevel() + "level"
+                        + media.getVideoRatings() + "ratings");
             }
         } else {
-            System.out.println("Sorry, Can't Find Video");
+            System.out.println("Sorry, Can't Find Media");
         }
     }
 
-    public Video inputSearchVideo(){
+    public Media inputSearchVideo(){
         System.out.println("Enter your video title:\n ");
         Scanner scanner = new Scanner(System.in);
         String title = scanner.nextLine();
@@ -144,9 +144,9 @@ public class GymMember{
         scanner = new Scanner(System.in);
         int ratings = scanner.nextInt();
 
-        Video videoSpec = new Video(title, description, category, level,ratings);
+        Media searchMedia = new Media(title, description, category, level,ratings);
 
-        return videoSpec;
+        return searchMedia;
     }
 
 }

@@ -17,7 +17,7 @@ public class Playlist{
     private String playlistDescription;
     private String playlistCategory;
     private int playlistLevel;
-    private ArrayList<Video> playlistVideos;
+    private ArrayList<Media> playlistMedias;
 
     public Playlist(String playlistName,String playlistDescription, String playlistCategory, int playlistLevel){
         this.playlistName =playlistName;
@@ -27,30 +27,30 @@ public class Playlist{
         videos = new ArrayList();
     }
     
-    public void addVideo(Video newVideo){
-        videos.add(newVideo);
+    public void addVideo(Media newMedia){
+        videos.add(newMedia);
     }
     
-    public Video getVideo(int videoId){
+    public Media getVideo(int videoId){
 
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
-            Video video = (Video)i.next();
-            if (videoId == video.getVideoId()) {
-                return video;
+            Media media = (Media)i.next();
+            if (videoId == media.getMediaId()) {
+                return media;
             }
         }
         return null;
     }
 
-    public List search(Video searchVideo) {
-        List matchingVideos = new LinkedList();
+    public List search(Media searchMedia) {
+        List matchingMedia = new LinkedList();
 
         for (Iterator i = videos.iterator(); i.hasNext(); ) {
-            Video video = (Video) i.next();
-            if (video.matches(searchVideo)) {
-                matchingVideos.add(video);
+            Media media = (Media) i.next();
+            if (media.matches(searchMedia)) {
+                matchingMedia.add(media);
             }
-            return matchingVideos;
+            return matchingMedia;
         }
         return null;
     }
